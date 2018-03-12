@@ -1,12 +1,12 @@
-= table.column :id
-= table.column :name
-= table.column :email
-= table.column :phone
-= table.column :ip_address
-= table.column :message
-= table.column :notified_at
-= table.timestamps
+= table.column :id, sort: true
+= table.column :name, sort: true
+= table.column :email, sort: true
+= table.column :phone, sort: true
+= table.column :ip_address, sort: true
+= table.column :message, sort: true
+= table.column :notified_at, sort: true
+= table.timestamps(format: :short, sort: true)
 = table.column :additional_actions do |resource|
-  = link_to({ action: :notify, id: resource.to_param}, method: :post, class: 'btn btn-xs btn-default') do
+  - link_to({ action: :notify, id: resource.to_param}, method: :post, class: 'btn btn-xs btn-default') do
     %span.glyphicon.glyphicon-envelope
-    %span.btn-text= t('.notify')
+    %span.btn-text= t('ecm.contact.backend.contact_requests.table.notify')
